@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">App Demo</string>
     <string name="scroll_aware_fab_behavior">recipe.android.vogorecipe.custom.ScrollAwareFABBehavior</string>
-    <string name="new_recipe">New Recipe</string>
+    <string name="new_word">New Word</string>
     <string name="detail_recipe">Recipe Information</string>
     <string name="new_ingredient">New Ingredient</string>
 

@@ -36,7 +36,7 @@ import recipe.android.vogorecipe.utilities.GaussianBlur;
 import recipe.android.vogorecipe.utilities.Utils;
 import recipe.android.vogorecipe.view.activities.BaseActivity;
 import recipe.android.vogorecipe.view.fragments.DialogIngredient;
-import recipe.android.vogorecipe.view.fragments.DialogRecipe;
+import recipe.android.vogorecipe.view.fragments.DialogWord;
 import recipe.android.vogorecipe.view.fragments.DialogRecipeDetailed;
 
 /**
@@ -54,16 +54,13 @@ public class MainActivity extends BaseActivity implements MainView {
     MainActivity mMainActivity;
 
     @Inject
-    DialogRecipe mDialogRecipe;
+    DialogWord mDialogWord;
 
     @Inject
     DialogIngredient mDialogIngredient;
 
     @Inject
     DialogRecipeDetailed mDialogRecipeDetailed;
-
-    @BindView(R.id.fabCreateRecipe)
-    FloatingActionButton fabCreateRecipe;
 
     @BindView(R.id.rcvRecipe)
     RecyclerView rcvRecipe;
@@ -94,7 +91,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     protected void initViews() {
-        mDialogRecipe.setParentFragment(mContext, this, mDialogIngredient);
+        mDialogWord.setParentFragment(mContext, this, mDialogIngredient);
         mMainPresenter = new MainPresenterImpl(mContext, this);
         originalRecipes = new ArrayList<>();
         mRecipeAdapter = new RecipeAdapter(mContext, new ArrayList<Recipe>(), new RecipeAdapter.RecipeInterface() {
@@ -112,7 +109,7 @@ public class MainActivity extends BaseActivity implements MainView {
         rcvRecipe.setLayoutManager(new LinearLayoutManager(mContext));
         rcvRecipe.setAdapter(mRecipeAdapter);
 
-        mDialogRecipe.attachEventInterface(new DialogRecipe.InterfaceRecipeFragment() {
+        mDialogWord.attachEventInterface(new DialogWord.InterfaceRecipeFragment() {
             @Override
             public void addRecipe(Recipe recipe) {
                 mMainPresenter.addRecipe(recipe);
@@ -221,21 +218,21 @@ public class MainActivity extends BaseActivity implements MainView {
         mParseDataToDialogInterface = parseDataToDialogInterface;
     }
 
-    @OnClick({R.id.fabCreateRecipe})
+    @OnClick({R.id.fabCreateWord})
     void onClick(View v) {
         if (Utils.isDoubleClick()) {
             return;
         }
         switch (v.getId()) {
-            case R.id.fabCreateRecipe:
-                showDialogRecipe();
+            case R.id.fabCreateWord:
+                showDialogWord();
                 break;
         }
     }
 
     @Override
-    public void showDialogRecipe() {
-        mDialogRecipe.show(mMainActivity.getFragmentManager(), Constants.RECIPE);
+    public void showDialogWord() {
+        mDialogWord.show(mMainActivity.getFragmentManager(), Constants.WORD);
     }
 
     @Override

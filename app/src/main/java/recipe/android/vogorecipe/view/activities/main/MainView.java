@@ -11,7 +11,7 @@ import recipe.android.vogorecipe.storage.entities.Recipe;
  */
 
 public interface MainView {
-    void showDialogRecipe();
+    void showDialogWord();
 
     void addRecipeSuccess(Recipe recipe);
 

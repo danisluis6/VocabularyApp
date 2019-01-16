@@ -3,6 +3,8 @@
     <color name="colorPrimaryDark">#E64A19</color>
     <color name="colorPrimary">#FF5722</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="fabColor">#FF5252</color>
+    <color name="fabColor">#FFFFFF</color>
     <color name="hint_text">#817b7b</color>
+
+    <color name="black_01">#16191B</color>
 </resources>

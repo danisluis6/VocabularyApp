@@ -7,7 +7,7 @@ package recipe.android.vogorecipe.utilities;
 
 public class Constants {
 
-    public static final String RECIPE = "RECIPE";
+    public static final String WORD = "WORD";
     public static final String INGREDIENT = "INGREDIENT";
     public static final String EMPTY_STRING = "";
     public static final String EQUAL = " = ?";

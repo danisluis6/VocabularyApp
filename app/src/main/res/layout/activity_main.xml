@@ -29,8 +29,7 @@
         <android.support.design.widget.CoordinatorLayout
             android:id="@+id/activity_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".view.activities.main.MainActivity">
+            android:layout_height="match_parent">
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcvRecipe"
@@ -40,7 +39,7 @@
                 android:overScrollMode="never" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fabCreateRecipe"
+                android:id="@+id/fabCreateWord"
                 app:fabSize="normal"
                 app:layout_behavior="@string/scroll_aware_fab_behavior"
                 app:backgroundTint="@color/fabColor"

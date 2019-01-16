@@ -7,7 +7,7 @@ import dagger.Provides;
 import recipe.android.vogorecipe.di.scope.ActivityScope;
 import recipe.android.vogorecipe.view.activities.main.MainActivity;
 import recipe.android.vogorecipe.view.fragments.DialogIngredient;
-import recipe.android.vogorecipe.view.fragments.DialogRecipe;
+import recipe.android.vogorecipe.view.fragments.DialogWord;
 import recipe.android.vogorecipe.view.fragments.DialogRecipeDetailed;
 
 /**
@@ -24,8 +24,8 @@ public class DialogModule {
 
     @Provides
     @ActivityScope
-    DialogRecipe provideDialogRecipe() {
-        return new DialogRecipe();
+    DialogWord provideDialogRecipe() {
+        return new DialogWord();
     }
 
     @Provides

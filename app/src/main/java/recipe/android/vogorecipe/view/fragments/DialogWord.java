@@ -1,15 +1,25 @@
 package recipe.android.vogorecipe.view.fragments;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +32,7 @@ import butterknife.OnClick;
 import recipe.android.vogorecipe.R;
 import recipe.android.vogorecipe.storage.entities.Recipe;
 import recipe.android.vogorecipe.utilities.Constants;
+import recipe.android.vogorecipe.utilities.GaussianBlur;
 import recipe.android.vogorecipe.view.activities.main.MainActivity;
 
 /**
@@ -30,7 +41,7 @@ import recipe.android.vogorecipe.view.activities.main.MainActivity;
  * @author lorence
  */
 
-public class DialogRecipe extends DialogFragment {
+public class DialogWord extends DialogFragment {
 
     private MainActivity mActivity;
     private Context mContext;
@@ -58,7 +69,15 @@ public class DialogRecipe extends DialogFragment {
     @BindView(R.id.spRecipeTypes)
     Spinner spRecipeTypes;
 
-    public DialogRecipe() {
+    @BindView(R.id.container)
+    ImageView container;
+
+    @BindView(R.id.layout)
+    LinearLayout layout;
+
+    private GaussianBlur blur;
+
+    public DialogWord() {
     }
 
     @Override
@@ -72,14 +91,53 @@ public class DialogRecipe extends DialogFragment {
         View view = inflater.inflate(R.layout.fragment_dialog_recipe, container);
         setCancelable(false);
         ButterKnife.bind(this, view);
-        tvNewRecipe.setText(getString(R.string.new_recipe));
+        tvNewRecipe.setText(getString(R.string.new_word));
         mRecipe = new Recipe();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(mContext,
                 R.array.recipes_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spRecipeTypes.setAdapter(adapter);
+        initComponents(view);
         return view;
+    }
+
+    private void initComponents(View view) {
+        container.setVisibility(View.GONE);
+        blur = new GaussianBlur(mActivity);
+        view.getViewTreeObserver().addOnWindowFocusChangeListener(new ViewTreeObserver.OnWindowFocusChangeListener() {
+            @Override
+            public void onWindowFocusChanged(final boolean hasFocus) {
+                container.setVisibility(View.VISIBLE);
+
+                layout.setDrawingCacheEnabled(true);
+                layout.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);
+
+                Bitmap bitmap = layout.getDrawingCache();
+
+                container.setImageBitmap(blur.gaussianBlur(25, bitmap));
+
+                layout.setVisibility(View.VISIBLE);
+            }
+        });
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            setStatusBarGradiant(mActivity);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public static void setStatusBarGradiant(Activity activity) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = activity.getWindow();
+            Drawable background = activity.getResources().getDrawable(R.drawable.custom_bg);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(activity.getResources().getColor(android.R.color.transparent));
+            window.setNavigationBarColor(activity.getResources().getColor(android.R.color.transparent));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+            }
+            window.setBackgroundDrawable(background);
+        }
     }
 
     @Override

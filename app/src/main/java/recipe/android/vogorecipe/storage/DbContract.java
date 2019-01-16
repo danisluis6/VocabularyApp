@@ -38,7 +38,7 @@ public final class DbContract {
      */
     private static final String CREATE_TABLE = "CREATE TABLE IF NOT EXISTS ";
     /**
-     * Create query for RECIPE table.
+     * Create query for WORD table.
      */
     static final String SQL_CREATE_SCHEDULE = new StringBuilder(CREATE_TABLE)
             .append(TableRecipe.TABLE_NAME).append(LEFT_BRACKET_SEP)
