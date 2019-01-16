@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">App Demo</string>
+    <string name="scroll_aware_fab_behavior">recipe.android.vogorecipe.custom.ScrollAwareFABBehavior</string>
+    <string name="new_recipe">New Recipe</string>
+    <string name="detail_recipe">Recipe Information</string>
+    <string name="new_ingredient">New Ingredient</string>
+
+
+    <string name="dish_hint_name">Name(*)</string>
+    <string name="dish_hint_ingredient">Ingredients</string>
+    <string name="dish_hint_description">Description</string>
+    <string name="dish_hint_portions">Portions</string>
+    <string name="dish_hint_terms">Terms</string>
+    <string name="text_hint_ingredient">Ingredient</string>
+    <string name="btn_new_recipe">New Recipe</string>
+    <string name="btn_update_recipe">Update Recipe</string>
+    <string name="btn_new_ingredient">New Ingredient</string>
+
+    <array name="recipes_array">
+        <item>Vegetarian</item>
+        <item>Fast Food</item>
+        <item>Healthy</item>
+        <item>No-Cook</item>
+        <item>Make Ahead</item>
+    </array>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/ic_vegetarian"
+        android:orderInCategory="100"
+        android:title="Vegetarian"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/ic_fast_food"
+        android:orderInCategory="200"
+        android:title="Fast Food"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/ic_healthy"
+        android:orderInCategory="200"
+        android:title="Healthy"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/ic_no_cook"
+        android:orderInCategory="200"
+        android:title="No-Cook"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/ic_make_ahead"
+        android:orderInCategory="200"
+        android:title="Make Ahead"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/ic_all"
+        android:orderInCategory="200"
+        android:title="All"
+        app:showAsAction="always" />
+
+</menu>
