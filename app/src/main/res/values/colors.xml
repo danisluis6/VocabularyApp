@@ -7,4 +7,8 @@
     <color name="hint_text">#817b7b</color>
 
     <color name="black_01">#16191B</color>
+
+    <color name="red_01">#E54630</color>
+
+    <color name="blue_01">#34497E</color>
 </resources>

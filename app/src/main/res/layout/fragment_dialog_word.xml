@@ -40,22 +40,39 @@
                 android:paddingBottom="16dp">
 
                 <RelativeLayout
+                    android:id="@+id/blurHeader"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tvNewRecipe"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
                         android:gravity="start"
-                        android:padding="16dp"
-                        android:paddingBottom="7dp"
-                        android:paddingTop="7dp"
-                        android:text="@string/new_word"
-                        android:textColor="@color/black_01"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="16dp"
+                            android:src="@drawable/ic_word" />
+
+                        <TextView
+                            android:id="@+id/tvYourWord"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:paddingBottom="7dp"
+                            android:paddingTop="7dp"
+                            android:text="@string/your_word"
+                            android:textColor="@color/black_01"
+                            android:textSize="24sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+
 
                     <ImageView
                         android:id="@+id/btnClose"
@@ -73,10 +90,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="16dp"
                     android:background="@drawable/gradient"
                     android:hint="@string/dish_hint_name"
-                    android:paddingTop="8dp"
+                    android:paddingTop="4dp"
                     android:textColorHint="@color/hint_text"
                     app:hintTextAppearance="@style/FloatLabelEditTextStyle">
 
@@ -85,7 +101,7 @@
                         style="@style/FloatLabelEditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="12dp"
                         android:drawablePadding="10dp"
                         android:imeOptions="actionNext"
                         android:inputType="text"
@@ -93,20 +109,87 @@
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
                         android:paddingTop="2dp"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:typeface="monospace" />
                 </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvUK"
+                        android:text="@string/label_UK"
+                        android:textSize="18sp"
+                        android:textColor="@color/red_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_speaker" />
+
+                    <TextView
+                        android:id="@+id/phoneticUK"
+                        android:textStyle="italic"
+                        android:text="/heˈləʊ/"
+                        android:layout_marginStart="8dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/blue_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvUS"
+                        android:text="@string/label_US"
+                        android:textSize="18sp"
+                        android:textColor="@color/red_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="8dp"
+                        android:src="@drawable/ic_speaker" />
+
+                    <TextView
+                        android:id="@+id/phoneticUS"
+                        android:textStyle="italic"
+                        android:text="/heˈləʊ/"
+                        android:layout_marginStart="8dp"
+                        android:textSize="18sp"
+                        android:textColor="@color/blue_01"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="12dp"
                     android:background="@drawable/gradient"
                     android:hint="@string/dish_hint_ingredient"
-                    android:paddingTop="8dp"
+                    android:paddingTop="4dp"
                     android:textColorHint="@color/hint_text"
                     app:hintTextAppearance="@style/FloatLabelEditTextStyle">
 
@@ -115,17 +198,17 @@
                         style="@style/FloatLabelEditTextStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="12dp"
                         android:drawablePadding="10dp"
-                        android:focusable="false"
-                        android:focusableInTouchMode="false"
                         android:imeOptions="actionNext"
                         android:inputType="text"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
                         android:paddingBottom="2dp"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
                         android:paddingTop="2dp"
-                        android:textSize="14sp"
+                        android:textSize="16sp"
                         android:typeface="monospace" />
                 </android.support.design.widget.TextInputLayout>
 

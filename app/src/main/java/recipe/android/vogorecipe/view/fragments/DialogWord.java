@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ import recipe.android.vogorecipe.R;
 import recipe.android.vogorecipe.storage.entities.Recipe;
 import recipe.android.vogorecipe.utilities.Constants;
 import recipe.android.vogorecipe.utilities.GaussianBlur;
+import recipe.android.vogorecipe.utilities.OverrideFonts;
 import recipe.android.vogorecipe.view.activities.main.MainActivity;
 
 /**
@@ -48,8 +50,8 @@ public class DialogWord extends DialogFragment {
     private DialogIngredient mDialogIngredient;
     private Recipe mRecipe;
 
-    @BindView(R.id.tvNewRecipe)
-    TextView tvNewRecipe;
+    @BindView(R.id.tvYourWord)
+    TextView tvYourWord;
 
     @BindView(R.id.edtName)
     EditText edtName;
@@ -75,6 +77,21 @@ public class DialogWord extends DialogFragment {
     @BindView(R.id.layout)
     LinearLayout layout;
 
+    @BindView(R.id.blurHeader)
+    RelativeLayout blurHeader;
+
+    @BindView(R.id.tvUK)
+    TextView tvUK;
+
+    @BindView(R.id.tvUS)
+    TextView tvUS;
+
+    @BindView(R.id.phoneticUK)
+    TextView phoneticUK;
+
+    @BindView(R.id.phoneticUS)
+    TextView phoneticUS;
+
     private GaussianBlur blur;
 
     public DialogWord() {
@@ -88,10 +105,9 @@ public class DialogWord extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_dialog_recipe, container);
+        View view = inflater.inflate(R.layout.fragment_dialog_word, container);
         setCancelable(false);
         ButterKnife.bind(this, view);
-        tvNewRecipe.setText(getString(R.string.new_word));
         mRecipe = new Recipe();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(mContext,
@@ -123,6 +139,12 @@ public class DialogWord extends DialogFragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setStatusBarGradiant(mActivity);
         }
+
+        tvYourWord.setTypeface(OverrideFonts.getTypeFace(mContext, OverrideFonts.TYPE_FONT_NAME.HELVETICANEUE, OverrideFonts.TYPE_STYLE.LIGHT));
+        tvUK.setTypeface(OverrideFonts.getTypeFace(mContext, OverrideFonts.TYPE_FONT_NAME.HELVETICANEUE, OverrideFonts.TYPE_STYLE.MEDIUM));
+        tvUS.setTypeface(OverrideFonts.getTypeFace(mContext, OverrideFonts.TYPE_FONT_NAME.HELVETICANEUE, OverrideFonts.TYPE_STYLE.MEDIUM));
+        phoneticUK.setTypeface(OverrideFonts.getTypeFace(mContext, OverrideFonts.TYPE_FONT_NAME.HELVETICANEUE, OverrideFonts.TYPE_STYLE.LIGHT));
+        phoneticUS.setTypeface(OverrideFonts.getTypeFace(mContext, OverrideFonts.TYPE_FONT_NAME.HELVETICANEUE, OverrideFonts.TYPE_STYLE.LIGHT));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
