@@ -2,6 +2,7 @@ package com.tienganh.vocabulary.view.activities.main;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -30,6 +31,7 @@ import com.tienganh.tuvungtienganh.R;
 import com.tienganh.vocabulary.adapter.RecipeAdapter;
 import com.tienganh.vocabulary.app.Application;
 import com.tienganh.vocabulary.di.module.MainModule;
+import com.tienganh.vocabulary.service.BackgroundService;
 import com.tienganh.vocabulary.storage.entities.Recipe;
 import com.tienganh.vocabulary.utilities.Constants;
 import com.tienganh.vocabulary.utilities.GaussianBlur;
@@ -131,6 +133,7 @@ public class MainActivity extends BaseActivity implements MainView {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setStatusBarGradiant(this);
         }
+        startService(new Intent(this, BackgroundService.class));
     }
 
     @Override

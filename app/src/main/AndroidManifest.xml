@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name="com.tienganh.vocabulary.service.BackgroundService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":worker"/>
     </application>
 
 </manifest>
