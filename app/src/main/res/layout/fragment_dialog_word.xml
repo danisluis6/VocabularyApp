@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activities.main.MainActivity">
+    tools:context="com.tienganh.vocabulary.view.activities.main.MainActivity">
 
     <LinearLayout
         android:id="@+id/layout"
@@ -123,6 +123,7 @@
                     <TextView
                         android:id="@+id/tvUK"
                         android:text="@string/label_UK"
+                        android:layout_marginStart="16dp"
                         android:textSize="18sp"
                         android:textColor="@color/red_01"
                         android:layout_width="wrap_content"
@@ -158,6 +159,7 @@
                         android:id="@+id/tvUS"
                         android:text="@string/label_US"
                         android:textSize="18sp"
+                        android:layout_marginStart="16dp"
                         android:textColor="@color/red_01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
