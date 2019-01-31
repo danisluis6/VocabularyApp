@@ -133,7 +133,6 @@ public class MainActivity extends BaseActivity implements MainView {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setStatusBarGradiant(this);
         }
-        startService(new Intent(this, BackgroundService.class));
     }
 
     @Override
